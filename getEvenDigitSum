@@ -1,0 +1,66 @@
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("EvenDigitSum is 68==" + getEvenDigitSum(68));
+        System.out.println("EvenDigitSum is 768==" + getEvenDigitSum(768));
+    }
+
+    public static int getEvenDigitSum(int number) {
+        if (number < 0) {
+            return -1;
+        }
+        int sum = 0;
+
+
+        if (number > 100 && number < 1000) {
+            int z = 100;
+            int hunderter = number / z;
+            if (isEvenNumber(hunderter)) {
+                sum += hunderter;
+            }
+
+            int zehner = (((number % z )/10)*10)/10;
+            if (isEvenNumber(zehner)) {
+                sum += zehner;
+            }
+
+            int einer = number % (z/10) ;
+            if (isEvenNumber(einer)) {
+                sum += einer;
+            }
+        }
+
+
+        if (number > 10 && number < 100) {
+            int z = 10;
+
+
+            int zehner = number /10;
+            if (isEvenNumber(zehner)) {
+                sum += zehner;
+            }
+
+            int einer = number % z ;
+            if (isEvenNumber(einer)) {
+                sum += einer;
+            }
+        }
+
+
+
+        return sum;
+    }
+
+
+        public static boolean isEvenNumber(int count){
+            if (count % 2 == 0) {
+                return true;
+            } else {
+                return false;
+            }
+    }
+}
+
+
+
+
+
